@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CupLiftMp3.mp3-211652f4d135346b550fbcc96e1e4a9d.mp3str"
+
+[deps]
+
+source_file="res://Resources/CupLiftMp3.mp3"
+dest_files=[ "res://.import/CupLiftMp3.mp3-211652f4d135346b550fbcc96e1e4a9d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

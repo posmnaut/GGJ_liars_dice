@@ -1,0 +1,180 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scenes/BidSelection.cs" type="Script" id=1]
+[ext_resource path="res://Resources/SubmitClicked1MP3.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Resources/SubmitClicked2MP3.mp3" type="AudioStream" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=4]
+roughness = 0.0
+
+[sub_resource type="BoxShape" id=5]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+roughness = 0.0
+
+[sub_resource type="BoxShape" id=6]
+
+[sub_resource type="BoxShape" id=7]
+
+[sub_resource type="BoxShape" id=8]
+
+[sub_resource type="SpatialMaterial" id=11]
+roughness = 0.0
+
+[sub_resource type="CubeMesh" id=9]
+
+[sub_resource type="SpatialMaterial" id=10]
+roughness = 0.0
+
+[sub_resource type="BoxShape" id=12]
+
+[node name="BidSelect" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 1.05, 0.9 )
+script = ExtResource( 1 )
+
+[node name="FaceIncrease" type="MeshInstance" parent="."]
+transform = Transform( 0.05, 0, 0, 0, 0.0433013, -0.025, 0, 0.025, 0.0433013, 0.3, -0.3, -0.7 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FaceI" type="Area" parent="FaceIncrease"]
+
+[node name="FI" type="CollisionShape" parent="FaceIncrease/FaceI"]
+shape = SubResource( 5 )
+
+[node name="Label3D" type="Label3D" parent="FaceIncrease"]
+transform = Transform( 1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, 0, 1.18643, -1.24229 )
+pixel_size = 0.07
+modulate = Color( 0, 0, 0, 1 )
+text = "Increase"
+
+[node name="FaceDecrease" type="MeshInstance" parent="."]
+transform = Transform( 0.05, 0, 0, 0, 0.0433013, -0.025, 0, 0.025, 0.0433013, 0.3, -0.397446, -0.396133 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FaceD" type="Area" parent="FaceDecrease"]
+
+[node name="FD" type="CollisionShape" parent="FaceDecrease/FaceD"]
+shape = SubResource( 6 )
+
+[node name="Label3D" type="Label3D" parent="FaceDecrease"]
+transform = Transform( 1, 0, 0, 0, -2.98023e-08, 1, 0, -1, -2.98023e-08, 0, 1.41911, 0.858143 )
+pixel_size = 0.05
+modulate = Color( 0, 0, 0, 1 )
+text = "Decrease"
+
+[node name="FreqIncrease" type="MeshInstance" parent="."]
+transform = Transform( 0.05, 0, 0, 0, 0.0433013, -0.025, 0, 0.025, 0.0433013, -0.320026, -0.3, -0.699999 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FreqI" type="Area" parent="FreqIncrease"]
+transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0, 0, 0 )
+
+[node name="FRI" type="CollisionShape" parent="FreqIncrease/FreqI"]
+shape = SubResource( 7 )
+
+[node name="Label3D" type="Label3D" parent="FreqIncrease"]
+transform = Transform( 1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, 0, 1.18643, -1.24229 )
+pixel_size = 0.07
+modulate = Color( 0, 0, 0, 1 )
+text = "Increase"
+
+[node name="FreqDecrease" type="MeshInstance" parent="."]
+transform = Transform( 0.05, 0, 0, 0, 0.0433013, -0.025, 0, 0.025, 0.0433013, -0.320026, -0.397446, -0.396133 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FreqD" type="Area" parent="FreqDecrease"]
+transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0, 0, 0 )
+
+[node name="FRD" type="CollisionShape" parent="FreqDecrease/FreqD"]
+shape = SubResource( 8 )
+
+[node name="Label3D" type="Label3D" parent="FreqDecrease"]
+transform = Transform( 1, 0, 0, 0, -2.98023e-08, 1, 0, -1, -2.98023e-08, 0, 1.41911, 0.858143 )
+pixel_size = 0.05
+modulate = Color( 0, 0, 0, 1 )
+text = "Decrease"
+
+[node name="Submit" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.0433013, -0.025, 0, 0.025, 0.0433013, -0.127516, -0.41745, -0.234938 )
+material_overlay = SubResource( 11 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="SubmitArea" type="Area" parent="Submit"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Submit/SubmitArea"]
+shape = SubResource( 12 )
+
+[node name="Label3D" type="Label3D" parent="Submit"]
+transform = Transform( 1, 0, 0, 0, 2.08616e-07, 1, 0, -1, 2.08616e-07, 0, 1.00157, 0.386723 )
+pixel_size = 0.03
+modulate = Color( 0, 0, 0, 1 )
+text = "Submit
+
+"
+
+[node name="Bluff" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.0433013, -0.025, 0, 0.025, 0.0433013, 0.134715, -0.41745, -0.234938 )
+material_overlay = SubResource( 11 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="BluffArea" type="Area" parent="Bluff"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Bluff/BluffArea"]
+shape = SubResource( 12 )
+
+[node name="Label3D" type="Label3D" parent="Bluff"]
+transform = Transform( 1, 0, 0, 0, 2.08616e-07, 1, 0, -1, 2.08616e-07, 0, 1.00157, 0.386723 )
+pixel_size = 0.03
+modulate = Color( 0, 0, 0, 1 )
+text = "Bluff
+
+"
+
+[node name="FreqLabel" type="Label3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.258819, 0.965925, 0, -0.965925, 0.258819, -0.319888, -0.30469, -0.578411 )
+pixel_size = 0.005
+text = "Freq."
+
+[node name="FaceLabel" type="Label3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.258819, 0.965925, 0, -0.965925, 0.258819, 0.304167, -0.30469, -0.578411 )
+pixel_size = 0.005
+text = "Face"
+
+[node name="SubmitClicked1" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13297, -0.314933, -0.205616 )
+stream = ExtResource( 2 )
+unit_db = -5.0
+
+[node name="SubmitClicked2" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132635, -0.329618, -0.175455 )
+stream = ExtResource( 3 )
+unit_db = -10.0
+
+[connection signal="input_event" from="FaceIncrease/FaceI" to="." method="_on_FaceI_input_event"]
+[connection signal="input_event" from="FaceDecrease/FaceD" to="." method="_on_FaceD_input_event"]
+[connection signal="input_event" from="FreqIncrease/FreqI" to="." method="_on_FreqI_input_event"]
+[connection signal="input_event" from="FreqDecrease/FreqD" to="." method="_on_FreqD_input_event"]
+[connection signal="input_event" from="Submit/SubmitArea" to="." method="_on_SubmitArea_input_event"]
+[connection signal="input_event" from="Bluff/BluffArea" to="." method="_on_BluffArea_input_event"]

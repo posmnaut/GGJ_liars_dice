@@ -1,0 +1,230 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Scripts/Main.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/PlayerCamera.cs" type="Script" id=2]
+[ext_resource path="res://Scripts/PlayerCup.cs" type="Script" id=3]
+[ext_resource path="res://Scripts/Warden.cs" type="Script" id=4]
+[ext_resource path="res://Scripts/Dice.cs" type="Script" id=5]
+[ext_resource path="res://Resources/CupLift.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Resources/CupShakeUSE.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Resources/CupLift2USE.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Scenes/BidSelection.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Resources/BidSelecting1MP3.mp3" type="AudioStream" id=10]
+[ext_resource path="res://Resources/PlayerWonBluff2MP3.mp3" type="AudioStream" id=11]
+[ext_resource path="res://Resources/PlayerWonBluff1MP3.mp3" type="AudioStream" id=12]
+[ext_resource path="res://Scenes/StartGame.tscn" type="PackedScene" id=13]
+
+[sub_resource type="QuadMesh" id=1]
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1, 0.101478, 1 )
+
+[sub_resource type="QuadMesh" id=4]
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.875221, 0.051358, 0.748265 )
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 1.75, 0.05, 1.5 )
+
+[sub_resource type="CylinderShape" id=7]
+height = 0.201013
+radius = 0.100546
+
+[sub_resource type="CylinderMesh" id=8]
+
+[sub_resource type="SpatialMaterial" id=9]
+roughness = 0.0
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Environment" type="Spatial" parent="."]
+
+[node name="WallN" type="StaticBody" parent="Environment"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Environment/WallN"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 1, -1 )
+mesh = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Environment/WallN"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 1, -1.25 )
+shape = SubResource( 2 )
+
+[node name="Floor" type="StaticBody" parent="Environment"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Environment/Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0 )
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Environment/Floor"]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, 1, 0, -2, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 4 )
+
+[node name="Table" type="StaticBody" parent="Environment"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Environment/Table"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.542528, 0 )
+shape = SubResource( 6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Environment/Table"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.568206, 0 )
+mesh = SubResource( 5 )
+
+[node name="PlayerCup" type="StaticBody" parent="Environment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00182176, 0.697411, 0.499524 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Environment/PlayerCup"]
+shape = SubResource( 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Environment/PlayerCup"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
+
+[node name="PivotLeft" type="Spatial" parent="Environment/PlayerCup"]
+transform = Transform( 0.999104, 0.0423116, 0, -0.0423116, 0.999104, 0, 0, 0, 1, -0.564518, 0.296262, -0.571427 )
+
+[node name="Pivot Right" type="Spatial" parent="Environment/PlayerCup"]
+transform = Transform( 0.999387, -0.0350216, 0, 0.0350216, 0.999387, 0, 0, 0, 1, 0.387119, 0.365792, -0.360773 )
+
+[node name="ShakeTimer" type="Timer" parent="Environment/PlayerCup"]
+one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Environment/PlayerCup"]
+stream = ExtResource( 6 )
+unit_db = -5.0
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="Environment/PlayerCup"]
+stream = ExtResource( 8 )
+
+[node name="PlayerCamera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.965925, 0.258819, 0, -0.258819, 0.965925, 0, 1.05, 0.9 )
+fov = 80.0
+script = ExtResource( 2 )
+
+[node name="LookAtRight" type="Spatial" parent="PlayerCamera"]
+transform = Transform( 1, 0, 0, 0, 0.999999, -7.45058e-08, 0, 7.45058e-08, 0.999999, 0.715795, -0.363515, -1.10012 )
+
+[node name="LookAtLeft" type="Spatial" parent="PlayerCamera"]
+transform = Transform( 1, 0, 0, 0, 0.999999, -7.45058e-08, 0, 7.45058e-08, 0.999999, -0.830057, -0.469241, -0.816259 )
+
+[node name="LookAtDown" type="Spatial" parent="PlayerCamera"]
+transform = Transform( 1, 0, 0, 0, 0.999999, -8.9407e-08, 0, 8.9407e-08, 0.999999, 0, -0.503825, -0.693569 )
+
+[node name="Warden" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44016, -1.066 )
+script = ExtResource( 4 )
+
+[node name="LookWarning" type="Label3D" parent="Warden"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.402098, 0.351866 )
+autowrap = true
+width = 100.0
+
+[node name="AllTimer" type="Timer" parent="Warden"]
+wait_time = 3.0
+one_shot = true
+
+[node name="DiceRoll" type="Label3D" parent="Warden"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.242299, 0.312 )
+
+[node name="DiceDecideTimer" type="Timer" parent="Warden"]
+wait_time = 4.0
+one_shot = true
+
+[node name="BidSelecting1" type="AudioStreamPlayer3D" parent="Warden"]
+stream = ExtResource( 10 )
+
+[node name="PlayerWonBluff1" type="AudioStreamPlayer3D" parent="Warden"]
+stream = ExtResource( 12 )
+
+[node name="PlayerWonBluff2" type="AudioStreamPlayer3D" parent="Warden"]
+stream = ExtResource( 11 )
+
+[node name="Dice" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00498009, -1.19209e-07, 0.0522277 )
+script = ExtResource( 5 )
+
+[node name="Die1" type="Label3D" parent="Dice"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.048, 0.6, 0.552345 )
+pixel_size = 0.002
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="Die2" type="Label3D" parent="Dice"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.063, 0.6, 0.59521 )
+pixel_size = 0.002
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="Die3" type="Label3D" parent="Dice"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.024, 0.6, 0.566104 )
+pixel_size = 0.002
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="Die4" type="Label3D" parent="Dice"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.04, 0.6, 0.530572 )
+pixel_size = 0.002
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="Die5" type="Label3D" parent="Dice"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.061, 0.6, 0.58592 )
+pixel_size = 0.002
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Dice"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555078, 0.40343 )
+stream = ExtResource( 7 )
+unit_db = -5.0
+
+[node name="FreqNumLabel" type="Label3D" parent="Dice"]
+transform = Transform( 1, 0, 0, 0, -2.98023e-08, 1, 0, -1, -2.98023e-08, -0.332332, 0.595698, 0.447384 )
+pixel_size = 0.005
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="FaceNumLabel" type="Label3D" parent="Dice"]
+transform = Transform( 1, 0, 0, 0, -2.98023e-08, 1, 0, -1, -2.98023e-08, 0.302532, 0.595698, 0.447384 )
+pixel_size = 0.005
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="BidSelect" parent="." instance=ExtResource( 9 )]
+
+[node name="StartGame" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 1.14252, 0.9 )
+
+[node name="GameStartTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="AfterGameStart" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.766044, 0.642787, 0, -0.642787, 0.766044, 0, 1.7562, 1.12669 )
+
+[connection signal="timeout" from="Environment/PlayerCup/ShakeTimer" to="Environment/PlayerCup" method="_on_ShakeTimer_timeout"]
+[connection signal="finished" from="Environment/PlayerCup/AudioStreamPlayer3D" to="Environment/PlayerCup" method="_on_AudioStreamPlayer3D_finished"]
+[connection signal="BluffInputHandler" from="PlayerCamera" to="Dice" method="_on_PlayerCamera_BluffInputHandler"]
+[connection signal="CupDownEventHandler" from="PlayerCamera" to="Environment/PlayerCup" method="_on_PlayerCamera_CupDownEventHandler"]
+[connection signal="CupDownEventHandler" from="PlayerCamera" to="Dice" method="_on_PlayerCamera_CupDownEventHandler"]
+[connection signal="CupLiftEventHandler" from="PlayerCamera" to="Environment/PlayerCup" method="_on_PlayerCamera_CupLiftEventHandler"]
+[connection signal="CupLiftEventHandler" from="PlayerCamera" to="Dice" method="_on_PlayerCamera_CupLiftEventHandler"]
+[connection signal="CupShakenEventHandler" from="PlayerCamera" to="Environment/PlayerCup" method="_on_PlayerCamera_CupShakenEventHandler"]
+[connection signal="CupShakenEventHandler" from="PlayerCamera" to="Warden" method="_on_PlayerCamera_CupShakenEventHandler"]
+[connection signal="CupShakenEventHandler" from="PlayerCamera" to="Dice" method="_on_PlayerCamera_CupShakenEventHandler"]
+[connection signal="NoEyeContactEventHandler" from="PlayerCamera" to="Warden" method="_on_PlayerCamera_NoEyeContactEventHandler"]
+[connection signal="SubmitInputHandler" from="PlayerCamera" to="Warden" method="_on_PlayerCamera_SubmitInputHandler"]
+[connection signal="WBidMadeEventHandler" from="Warden" to="PlayerCamera" method="_on_Warden_WBidMadeEventHandler"]
+[connection signal="WBluffEventHandler" from="Warden" to="Dice" method="_on_Warden_WBluffEventHandler"]
+[connection signal="timeout" from="Warden/AllTimer" to="Warden" method="_on_AllTimer_timeout"]
+[connection signal="timeout" from="Warden/DiceDecideTimer" to="Warden" method="_on_DiceDecideTimer_timeout"]
+[connection signal="PlayerWonBluffEventHandler" from="Dice" to="PlayerCamera" method="_on_Dice_PlayerWonBluffEventHandler"]
+[connection signal="PlayerWonBluffEventHandler" from="Dice" to="Warden" method="_on_Dice_PlayerWonBluffEventHandler"]
+[connection signal="WardenWonBluffEventHandler" from="Dice" to="PlayerCamera" method="_on_Dice_WardenWonBluffEventHandler"]
+[connection signal="WardenWonBluffEventHandler" from="Dice" to="Warden" method="_on_Dice_WardenWonBluffEventHandler"]
+[connection signal="BluffInputHandler" from="BidSelect" to="PlayerCamera" method="_on_BidSelect_BluffInputHandler"]
+[connection signal="FaceDecreaseInputHandler" from="BidSelect" to="PlayerCamera" method="_on_BidSelect_FaceDecreaseInputHandler"]
+[connection signal="FaceIncreaseInputHandler" from="BidSelect" to="PlayerCamera" method="_on_BidSelect_FaceIncreaseInputHandler"]
+[connection signal="FreqDecreaseInputHandler" from="BidSelect" to="PlayerCamera" method="_on_BidSelect_FreqDecreaseInputHandler"]
+[connection signal="FreqIncreaseInputHandler" from="BidSelect" to="PlayerCamera" method="_on_BidSelect_FreqIncreaseInputHandler"]
+[connection signal="SubmitInputHandler" from="BidSelect" to="PlayerCamera" method="_on_BidSelect_SubmitInputHandler"]
+[connection signal="NameEnteredEventHandler" from="StartGame" to="." method="_on_StartGame_NameEnteredEventHandler"]
+[connection signal="timeout" from="GameStartTimer" to="." method="_on_GameStartTimer_timeout"]

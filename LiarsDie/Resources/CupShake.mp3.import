@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CupShake.mp3-494daf13619b4f8aeb5a1027ffb6930b.mp3str"
+
+[deps]
+
+source_file="res://Resources/CupShake.mp3"
+dest_files=[ "res://.import/CupShake.mp3-494daf13619b4f8aeb5a1027ffb6930b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

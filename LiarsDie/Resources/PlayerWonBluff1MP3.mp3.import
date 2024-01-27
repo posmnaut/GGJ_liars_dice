@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PlayerWonBluff1MP3.mp3-c408ec9a7b080ae243d102aa2d5aeb77.mp3str"
+
+[deps]
+
+source_file="res://Resources/PlayerWonBluff1MP3.mp3"
+dest_files=[ "res://.import/PlayerWonBluff1MP3.mp3-c408ec9a7b080ae243d102aa2d5aeb77.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

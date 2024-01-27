@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BidSelecting1MP3.mp3-45ba50417fa7d934290198f94b0245c6.mp3str"
+
+[deps]
+
+source_file="res://Resources/BidSelecting1MP3.mp3"
+dest_files=[ "res://.import/BidSelecting1MP3.mp3-45ba50417fa7d934290198f94b0245c6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
