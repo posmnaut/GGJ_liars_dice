@@ -4,7 +4,7 @@ using System.IO.Compression;
 using System.Runtime.CompilerServices;
 // using System.Threading;
 
-public class PlayerCamera : Camera
+public partial class PlayerCamera : Camera3D
 {
     [Signal]
     public delegate void CupLiftEventHandler();
@@ -15,11 +15,11 @@ public class PlayerCamera : Camera
     [Signal]
     public delegate void NoEyeContactEventHandler();
     [Signal]
-    public delegate void SubmitInputHandler();
+    public delegate void SubmitInputHandlerEventHandler();
     [Signal]
-    public delegate void BluffInputHandler(int previousHighestFreq, int previousHighestFace);
+    public delegate void BluffInputHandlerEventHandler(int previousHighestFreq, int previousHighestFace);
 
-    Camera cameraNode;
+    Camera3D cameraNode;
 
     public bool gameStart = true;
     // public string playerName = "";
@@ -29,10 +29,10 @@ public class PlayerCamera : Camera
     // int lookingLeft = -1;
     int turningDirect = 0;
     bool turnDownFlag = false;
-    Transform defaultTransform;
-    Spatial lookAtDown;
-    Spatial lookAtRight;
-    Spatial lookAtLeft;
+    Transform3D defaultTransform;
+    Node3D lookAtDown;
+    Node3D lookAtRight;
+    Node3D lookAtLeft;
     Timer warderDecideTimer;
 
     float interpolationDur = 0.0f;
@@ -56,13 +56,13 @@ public class PlayerCamera : Camera
         defaultTransform = this.Transform;
         //The position for the `PlayerCamera` `Camera` instance to `lookAt()` when `S` is ->
         //-> pressed.
-        lookAtDown = GetTree().Root.GetChild(0).GetChild(1).GetChild<Spatial>(2);
+        lookAtDown = GetTree().Root.GetChild(0).GetChild(1).GetChild<Node3D>(2);
         //The position for the `PlayerCamera` `Camera` instance to `lookAt()` when `D` is ->
         //-> pressed.
-        lookAtRight = GetTree().Root.GetChild(0).GetChild(1).GetChild<Spatial>(0);
+        lookAtRight = GetTree().Root.GetChild(0).GetChild(1).GetChild<Node3D>(0);
         //The position for the `PlayerCamera` `Camera` instance to `lookAt()` when `A` is ->
         //-> pressed.
-        lookAtLeft = GetTree().Root.GetChild(0).GetChild(1).GetChild<Spatial>(1);
+        lookAtLeft = GetTree().Root.GetChild(0).GetChild(1).GetChild<Node3D>(1);
 
         //The "Warden"s `decideTimer`, this will be used to let us know when the player ->
         //-> can make actions again.
@@ -70,7 +70,7 @@ public class PlayerCamera : Camera
     }
 
  // Called every frame. 'delta' is the elapsed time since the previous frame.
- public override void _Process(float delta)
+ public override void _Process(double delta)
  {
     // GD.Print(this.Translation);
     // GD.Print("FACE: " + playfaceBid);
@@ -151,12 +151,12 @@ public class PlayerCamera : Camera
             if(isCupShaking == false){
                 //Look-Backward:
                 if(turnDownFlag == true){
-                    interpolationDur += 0.2f + delta;
-                    Transform startLocation = this.Transform;
-                    this.LookAt(lookAtDown.Translation, Vector3.Up);
-                    Transform endLocation = this.Transform;
+                    interpolationDur += 0.2f + (float) delta;
+                    Transform3D startLocation = this.Transform;
+                    this.LookAt(lookAtDown.Position, Vector3.Up);
+                    Transform3D endLocation = this.Transform;
 
-                    this.Transform = startLocation.InterpolateWith(endLocation, 0.2f + delta);
+                    this.Transform = startLocation.InterpolateWith(endLocation, 0.2f + (float) delta);
                     //This `if-statement` prevents the `Signal` from being emitted too early and ->
                     //-> And prevents it from firing more than once.
                     if(interpolationDur >= 1.0f && interpolationDur <= 1.084){
@@ -166,10 +166,10 @@ public class PlayerCamera : Camera
                 }
                 //Look-Forward:
                 else if(turningDirect == 0){
-                    interpolationDur += 0.2f + delta;
-                    Transform startLocation = this.Transform;
-                    Transform endLocation = defaultTransform;
-                    this.Transform = startLocation.InterpolateWith(endLocation, 0.2f + delta);
+                    interpolationDur += 0.2f + (float) delta;
+                    Transform3D startLocation = this.Transform;
+                    Transform3D endLocation = defaultTransform;
+                    this.Transform = startLocation.InterpolateWith(endLocation, 0.2f + (float) delta);
 
                     if(interpolationDur >= 1.0f && interpolationDur <= 1.084){
                         isInterpolating = false;
@@ -177,24 +177,24 @@ public class PlayerCamera : Camera
                 }
                 //Look-Right:
                 else if(turningDirect == 1){
-                    interpolationDur += 0.2f + delta;
-                    Transform startLocation = this.Transform;
-                    this.LookAt(lookAtRight.Translation, Vector3.Up);
-                    Transform endLocation = this.Transform;
+                    interpolationDur += 0.2f + (float) delta;
+                    Transform3D startLocation = this.Transform;
+                    this.LookAt(lookAtRight.Position, Vector3.Up);
+                    Transform3D endLocation = this.Transform;
 
-                    this.Transform = startLocation.InterpolateWith(endLocation, 0.2f + delta);
+                    this.Transform = startLocation.InterpolateWith(endLocation, 0.2f + (float) delta);
                     if(interpolationDur >= 1.0f && interpolationDur <= 1.084){
                         isInterpolating = false;
                     }
                 }
                 //Look-Left:
                 else if(turningDirect == -1){
-                    interpolationDur += 0.2f + delta;
-                    Transform startLocation = this.Transform;
-                    this.LookAt(lookAtLeft.Translation, Vector3.Up);
-                    Transform endLocation = this.Transform;
+                    interpolationDur += 0.2f + (float) delta;
+                    Transform3D startLocation = this.Transform;
+                    this.LookAt(lookAtLeft.Position, Vector3.Up);
+                    Transform3D endLocation = this.Transform;
 
-                    this.Transform = startLocation.InterpolateWith(endLocation, 0.2f + delta);
+                    this.Transform = startLocation.InterpolateWith(endLocation, 0.2f + (float) delta);
                     if(interpolationDur >= 1.0f && interpolationDur <= 1.084){
                         isInterpolating = false;
                     }
@@ -264,12 +264,12 @@ public class PlayerCamera : Camera
             if(isCupShaking == false){
                 //Look-Backward:
                 if(turnDownFlag == true){
-                    interpolationDur += 0.2f + delta;
-                    Transform startLocation = this.Transform;
-                    this.LookAt(lookAtDown.Translation, Vector3.Up);
-                    Transform endLocation = this.Transform;
+                    interpolationDur += 0.2f + (float) delta;
+                    Transform3D startLocation = this.Transform;
+                    this.LookAt(lookAtDown.Position, Vector3.Up);
+                    Transform3D endLocation = this.Transform;
 
-                    this.Transform = startLocation.InterpolateWith(endLocation, 0.2f + delta);
+                    this.Transform = startLocation.InterpolateWith(endLocation, 0.2f + (float) delta);
                     //This `if-statement` prevents the `Signal` from being emitted too early and ->
                     //-> And prevents it from firing more than once.
                     if(interpolationDur >= 1.0f && interpolationDur <= 1.084){
@@ -279,10 +279,10 @@ public class PlayerCamera : Camera
                 }
                 //Look-Forward:
                 else if(turningDirect == 0){
-                    interpolationDur += 0.2f + delta;
-                    Transform startLocation = this.Transform;
-                    Transform endLocation = defaultTransform;
-                    this.Transform = startLocation.InterpolateWith(endLocation, 0.2f + delta);
+                    interpolationDur += 0.2f + (float) delta;
+                    Transform3D startLocation = this.Transform;
+                    Transform3D endLocation = defaultTransform;
+                    this.Transform = startLocation.InterpolateWith(endLocation, 0.2f + (float) delta);
 
                     if(interpolationDur >= 1.0f && interpolationDur <= 1.084){
                         isInterpolating = false;
@@ -290,24 +290,24 @@ public class PlayerCamera : Camera
                 }
                 //Look-Right:
                 else if(turningDirect == 1){
-                    interpolationDur += 0.2f + delta;
-                    Transform startLocation = this.Transform;
-                    this.LookAt(lookAtRight.Translation, Vector3.Up);
-                    Transform endLocation = this.Transform;
+                    interpolationDur += 0.2f + (float) delta;
+                    Transform3D startLocation = this.Transform;
+                    this.LookAt(lookAtRight.Position, Vector3.Up);
+                    Transform3D endLocation = this.Transform;
 
-                    this.Transform = startLocation.InterpolateWith(endLocation, 0.2f + delta);
+                    this.Transform = startLocation.InterpolateWith(endLocation, 0.2f + (float) delta);
                     if(interpolationDur >= 1.0f && interpolationDur <= 1.084){
                         isInterpolating = false;
                     }
                 }
                 //Look-Left:
                 else if(turningDirect == -1){
-                    interpolationDur += 0.2f + delta;
-                    Transform startLocation = this.Transform;
-                    this.LookAt(lookAtLeft.Translation, Vector3.Up);
-                    Transform endLocation = this.Transform;
+                    interpolationDur += 0.2f + (float) delta;
+                    Transform3D startLocation = this.Transform;
+                    this.LookAt(lookAtLeft.Position, Vector3.Up);
+                    Transform3D endLocation = this.Transform;
 
-                    this.Transform = startLocation.InterpolateWith(endLocation, 0.2f + delta);
+                    this.Transform = startLocation.InterpolateWith(endLocation, 0.2f + (float) delta);
                     if(interpolationDur >= 1.0f && interpolationDur <= 1.084){
                         isInterpolating = false;
                     }

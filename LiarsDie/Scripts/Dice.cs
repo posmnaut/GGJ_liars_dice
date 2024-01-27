@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Dice : Spatial
+public partial class Dice : Node3D
 {
     [Signal]
     public delegate void PlayerWonBluffEventHandler();
@@ -47,7 +47,7 @@ public class Dice : Spatial
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(float delta)
+    public override void _Process(double delta)
     {
         freqLabel.Text = playerCam.playfreqBid.ToString();
         faceLabel.Text = playerCam.playfaceBid.ToString();

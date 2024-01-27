@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/CupShakeUSE.mp3-92488759915849a4537c4475ab7b2876.mp3str"
+uid="uid://b3vp0u38hwfs4"
+path="res://.godot/imported/CupShakeUSE.mp3-92488759915849a4537c4475ab7b2876.mp3str"
 
 [deps]
 
 source_file="res://Resources/CupShakeUSE.mp3"
-dest_files=[ "res://.import/CupShakeUSE.mp3-92488759915849a4537c4475ab7b2876.mp3str" ]
+dest_files=["res://.godot/imported/CupShakeUSE.mp3-92488759915849a4537c4475ab7b2876.mp3str"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

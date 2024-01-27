@@ -1,214 +1,221 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://bgtkd4acb0wo1"]
 
-[ext_resource path="res://Scripts/StartGame.cs" type="Script" id=1]
-[ext_resource path="res://Resources/ThemeTest1.wav" type="AudioStream" id=2]
+[ext_resource type="Script" path="res://Scripts/StartGame.cs" id="1"]
+[ext_resource type="AudioStream" uid="uid://dc24iexa30sdm" path="res://Resources/ThemeTest1.wav" id="2"]
 
-[sub_resource type="PlaneMesh" id=10]
+[sub_resource type="PlaneMesh" id="10"]
 
-[sub_resource type="PlaneMesh" id=11]
+[sub_resource type="PlaneMesh" id="11"]
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id="12"]
 resource_name = "NameEntered"
 length = 3.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Background/LeftWall:translation")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Background/LeftWall:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [ Vector3( -0.852416, 0.132545, -0.494664 ), Vector3( -0.889286, 0.132545, -0.494664 ), Vector3( -0.836379, 0.132545, -0.494664 ), Vector3( -0.852416, 0.132545, -0.494664 ), Vector3( -0.889286, 0.132545, -0.494664 ), Vector3( -0.836379, 0.132545, -0.494664 ), Vector3( -0.852416, 0.132545, -0.494664 ), Vector3( -0.889286, 0.132545, -0.494664 ), Vector3( -0.836379, 0.132545, -0.494664 ), Vector3( -0.852416, 0.132545, -0.494664 ), Vector3( -0.889286, 0.132545, -0.494664 ), Vector3( -0.852416, 0.132545, -0.494664 ), Vector3( -0.889286, 0.132545, -0.494664 ), Vector3( -0.836379, 0.132545, -0.494664 ), Vector3( -0.852416, 0.132545, -0.494664 ), Vector3( -0.889286, 0.132545, -0.494664 ), Vector3( -4.3287, 0.132545, -0.494664 ) ]
+"values": [Vector3(-0.852416, 0.132545, -0.494664), Vector3(-0.889286, 0.132545, -0.494664), Vector3(-0.836379, 0.132545, -0.494664), Vector3(-0.852416, 0.132545, -0.494664), Vector3(-0.889286, 0.132545, -0.494664), Vector3(-0.836379, 0.132545, -0.494664), Vector3(-0.852416, 0.132545, -0.494664), Vector3(-0.889286, 0.132545, -0.494664), Vector3(-0.836379, 0.132545, -0.494664), Vector3(-0.852416, 0.132545, -0.494664), Vector3(-0.889286, 0.132545, -0.494664), Vector3(-0.852416, 0.132545, -0.494664), Vector3(-0.889286, 0.132545, -0.494664), Vector3(-0.836379, 0.132545, -0.494664), Vector3(-0.852416, 0.132545, -0.494664), Vector3(-0.889286, 0.132545, -0.494664), Vector3(-4.3287, 0.132545, -0.494664)]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Background/RightWall:translation")
-tracks/1/interp = 0
-tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
+tracks/1/path = NodePath("Background/RightWall:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [ Vector3( 0.914095, 0.132545, -0.494664 ), Vector3( 0.914095, 0.132545, -0.494664 ), Vector3( 0.893772, 0.132545, -0.494664 ), Vector3( 0.961072, 0.132545, -0.494664 ), Vector3( 0.961072, 0.132545, -0.494664 ), Vector3( 0.914095, 0.132545, -0.494664 ), Vector3( 0.914095, 0.132545, -0.494664 ), Vector3( 0.893772, 0.132545, -0.494664 ), Vector3( 0.893772, 0.132545, -0.494664 ), Vector3( 0.961072, 0.132545, -0.494664 ), Vector3( 0.961072, 0.132545, -0.494664 ), Vector3( 0.914095, 0.132545, -0.494664 ), Vector3( 0.914095, 0.132545, -0.494664 ), Vector3( 0.893772, 0.132545, -0.494664 ), Vector3( 0.961072, 0.132545, -0.494664 ), Vector3( 0.961072, 0.132545, -0.494664 ), Vector3( 0.914095, 0.132545, -0.494664 ), Vector3( 4.73477, 0.132545, -0.494664 ) ]
+"values": [Vector3(0.914095, 0.132545, -0.494664), Vector3(0.914095, 0.132545, -0.494664), Vector3(0.893772, 0.132545, -0.494664), Vector3(0.961072, 0.132545, -0.494664), Vector3(0.961072, 0.132545, -0.494664), Vector3(0.914095, 0.132545, -0.494664), Vector3(0.914095, 0.132545, -0.494664), Vector3(0.893772, 0.132545, -0.494664), Vector3(0.893772, 0.132545, -0.494664), Vector3(0.961072, 0.132545, -0.494664), Vector3(0.961072, 0.132545, -0.494664), Vector3(0.914095, 0.132545, -0.494664), Vector3(0.914095, 0.132545, -0.494664), Vector3(0.893772, 0.132545, -0.494664), Vector3(0.961072, 0.132545, -0.494664), Vector3(0.961072, 0.132545, -0.494664), Vector3(0.914095, 0.132545, -0.494664), Vector3(4.73477, 0.132545, -0.494664)]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Background/StartScreen/LegalNameLabel:modulate")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.7, 3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.7, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0.811765, 0.0117647, 0.0117647, 1 ), Color( 0.811765, 0.0117647, 0.0117647, 1 ) ]
+"values": [Color(0, 0, 0, 1), Color(0.811765, 0.0117647, 0.0117647, 1), Color(0.811765, 0.0117647, 0.0117647, 1)]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("Background/BackWall:rotation_degrees")
 tracks/3/interp = 0
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [ Vector3( 88, 180, -180 ), Vector3( 86, 180, -180 ), Vector3( 90, 180, -180 ), Vector3( 88, 180, -180 ), Vector3( 86, 180, -180 ), Vector3( 90, 180, -180 ), Vector3( 88, 180, -180 ), Vector3( 86, 180, -180 ), Vector3( 90, 180, -180 ), Vector3( 88, 180, -180 ), Vector3( 86, 180, -180 ), Vector3( 88, 180, -180 ), Vector3( 86, 180, -180 ), Vector3( 90, 180, -180 ), Vector3( 88, 180, -180 ), Vector3( 86, 180, -180 ), Vector3( 90, 180, -180 ), Vector3( 88, 180, -180 ), Vector3( 86, 180, -180 ), Vector3( 90, 180, -180 ), Vector3( 88, 180, -180 ) ]
+"values": [Vector3(88, 180, -180), Vector3(86, 180, -180), Vector3(90, 180, -180), Vector3(88, 180, -180), Vector3(86, 180, -180), Vector3(90, 180, -180), Vector3(88, 180, -180), Vector3(86, 180, -180), Vector3(90, 180, -180), Vector3(88, 180, -180), Vector3(86, 180, -180), Vector3(88, 180, -180), Vector3(86, 180, -180), Vector3(90, 180, -180), Vector3(88, 180, -180), Vector3(86, 180, -180), Vector3(90, 180, -180), Vector3(88, 180, -180), Vector3(86, 180, -180), Vector3(90, 180, -180), Vector3(88, 180, -180)]
 }
 tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
 tracks/4/path = NodePath("Background/StartScreen:transform")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 2, 2.1, 2.2, 2.3, 2.5, 2.6, 2.8, 2.9, 3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 2, 2.1, 2.2, 2.3, 2.5, 2.6, 2.8, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [ Transform( 1, 0, 0, 0, 0.731354, -0.681999, 0, 0.681999, 0.731354, 0, 0.19748, -0.737005 ), Transform( 1, 0, 0, 0, 0.731354, -0.681999, 0, 0.681999, 0.731354, 0, 0.19748, -0.737005 ), Transform( 1, 0, 0, 0, 0.731355, -0.681999, 0, 0.681999, 0.731355, 0, 0.116526, -0.684011 ), Transform( 1, 0, 0, 0, 0.731355, -0.681999, 0, 0.681999, 0.731355, 0, 0.116526, -0.684011 ), Transform( 1, 0, 0, 0, 0.731355, -0.681999, 0, 0.681999, 0.731355, 0, -0.0933954, -0.493297 ), Transform( 1, 0, 0, 0, 0.731355, -0.681999, 0, 0.681999, 0.731355, 0, -0.0933954, -0.493297 ), Transform( 1, 0, 0, 0, 0.731355, -0.681999, 0, 0.681999, 0.731355, 0, -0.398883, -0.172383 ), Transform( 1, 0, 0, 0, 0.731355, -0.681999, 0, 0.681999, 0.731355, 0, -0.398883, -0.172383 ), Transform( 1, 0, 0, 0, 0.731355, -0.681999, 0, 0.681999, 0.731355, 0, -0.61654, -0.0265646 ), Transform( 1, 0, 0, 0, 0.731355, -0.681999, 0, 0.681999, 0.731355, 0, -2.14741, 0.872312 ) ]
+"values": [Transform3D(1, 0, 0, 0, 0.731354, -0.681999, 0, 0.681999, 0.731354, 0, 0.19748, -0.737005), Transform3D(1, 0, 0, 0, 0.731354, -0.681999, 0, 0.681999, 0.731354, 0, 0.19748, -0.737005), Transform3D(1, 0, 0, 0, 0.731355, -0.681999, 0, 0.681999, 0.731355, 0, 0.116526, -0.684011), Transform3D(1, 0, 0, 0, 0.731355, -0.681999, 0, 0.681999, 0.731355, 0, 0.116526, -0.684011), Transform3D(1, 0, 0, 0, 0.731355, -0.681999, 0, 0.681999, 0.731355, 0, -0.0933954, -0.493297), Transform3D(1, 0, 0, 0, 0.731355, -0.681999, 0, 0.681999, 0.731355, 0, -0.0933954, -0.493297), Transform3D(1, 0, 0, 0, 0.731355, -0.681999, 0, 0.681999, 0.731355, 0, -0.398883, -0.172383), Transform3D(1, 0, 0, 0, 0.731355, -0.681999, 0, 0.681999, 0.731355, 0, -0.398883, -0.172383), Transform3D(1, 0, 0, 0, 0.731355, -0.681999, 0, 0.681999, 0.731355, 0, -0.61654, -0.0265646), Transform3D(1, 0, 0, 0, 0.731355, -0.681999, 0, 0.681999, 0.731355, 0, -2.14741, 0.872312)]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Background/BackWall:translation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
+tracks/5/path = NodePath("Background/BackWall:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 2.5, 3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [ Vector3( -0.0125381, 0.376839, -1.40638 ), Vector3( -0.0125381, 0.376839, -1.40638 ), Vector3( -0.0125381, -3.35946, -2.40752 ) ]
+"values": [Vector3(-0.0125381, 0.376839, -1.40638), Vector3(-0.0125381, 0.376839, -1.40638), Vector3(-0.0125381, -3.35946, -2.40752)]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id="14"]
 resource_name = "PaperFall"
 length = 3.0
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Background/StartScreen:transform")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 2, 3 ),
-"transitions": PoolRealArray( 0.406125, 1 ),
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(0.406125, 1),
 "update": 0,
-"values": [ Transform( 1, 0, 0, 0, -5.96046e-08, -1, 0, 1, -5.96046e-08, 0, 2.42414, -0.140372 ), Transform( 1, 0, 0, 0, 0.731354, -0.681999, 0, 0.681999, 0.731354, 0, 0.19748, -0.737005 ) ]
+"values": [Transform3D(1, 0, 0, 0, -5.96046e-08, -1, 0, 1, -5.96046e-08, 0, 2.42414, -0.140372), Transform3D(1, 0, 0, 0, 0.731354, -0.681999, 0, 0.681999, 0.731354, 0, 0.19748, -0.737005)]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id="13"]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Background/LeftWall:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Background/LeftWall:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector3( -0.852416, 0.132545, -0.494664 ) ]
+"values": [Vector3(-0.852416, 0.132545, -0.494664)]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Background/RightWall:translation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
+tracks/1/path = NodePath("Background/RightWall:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector3( 0.914095, 0.132545, -0.494664 ) ]
+"values": [Vector3(0.914095, 0.132545, -0.494664)]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Background/StartScreen/LegalNameLabel:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ) ]
+"values": [Color(0, 0, 0, 1)]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("Background/StartScreen/LegalNameLabel:text")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ "TEMPORARY" ]
+"values": ["TEMPORARY"]
 }
 tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
 tracks/4/path = NodePath("Background/BackWall:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector3( 88, 180, -180 ) ]
+"values": [Vector3(88, 180, -180)]
 }
 tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
 tracks/5/path = NodePath("Background/StartScreen:transform")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Transform( 1, 0, 0, 0, 0.731354, -0.681999, 0, 0.681999, 0.731354, 0, 2.47405, -0.126999 ) ]
+"values": [Transform3D(1, 0, 0, 0, 0.731354, -0.681999, 0, 0.681999, 0.731354, 0, 2.47405, -0.126999)]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Background/BackWall:translation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
+tracks/6/path = NodePath("Background/BackWall:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector3( -0.0125381, 0.376839, -1.40638 ) ]
+"values": [Vector3(-0.0125381, 0.376839, -1.40638)]
 }
 
-[node name="StartGame" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -0.00498009, 1.05, 0.847772 )
-script = ExtResource( 1 )
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m3tmy"]
+_data = {
+"NameEntered": SubResource("12"),
+"PaperFall": SubResource("14"),
+"RESET": SubResource("13")
+}
 
-[node name="Background" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0, 0, 0 )
+[node name="StartGame" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -0.00498009, 1.05, 0.847772)
+script = ExtResource("1")
 
-[node name="StartScreen" type="MeshInstance" parent="Background"]
-transform = Transform( 1, 0, 0, 0, 0.731354, -0.681999, 0, 0.681999, 0.731354, 0, 2.47405, -0.126999 )
-mesh = SubResource( 10 )
+[node name="Background" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0, 0, 0)
+
+[node name="StartScreen" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 0.731354, -0.681999, 0, 0.681999, 0.731354, 0, 2.47405, -0.126999)
+mesh = SubResource("10")
 skeleton = NodePath("")
 
 [node name="LegalNameLabel" type="Label3D" parent="Background/StartScreen"]
-transform = Transform( 1, 0, 0, 0, -0.0523361, 0.998627, 0, -0.998627, -0.0523361, 0.000256243, 0.00335002, 0.453165 )
+transform = Transform3D(1, 0, 0, 0, -0.0523361, 0.998627, 0, -0.998627, -0.0523361, 0.000256243, 0.00335002, 0.453165)
 pixel_size = 0.007
-modulate = Color( 0, 0, 0, 1 )
+modulate = Color(0, 0, 0, 1)
 text = "TEMPORARY"
 uppercase = true
 
 [node name="ActualPrintLabel" type="Label3D" parent="Background/StartScreen"]
-transform = Transform( 1, 0, 0, 0, -0.018116, 0.999833, 0, -0.999833, -0.018116, -0.729572, 0.0110409, -0.266713 )
+transform = Transform3D(1, 0, 0, 0, -0.018116, 0.999833, 0, -0.999833, -0.018116, -0.729572, 0.0110409, -0.266713)
 pixel_size = 0.001
-modulate = Color( 0, 0, 0, 1 )
+modulate = Color(0, 0, 0, 1)
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit eget gravida cum sociis natoque penatibus et magnis dis. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Pharetra et ultrices neque ornare aenean. Quam nulla porttitor massa id. Mauris cursus mattis molestie a iaculis at erat. Massa placerat duis ultricies lacus sed turpis. Pharetra vel turpis nunc eget lorem dolor sed. Mattis aliquam faucibus purus in massa tempor nec feugiat. Amet dictum sit amet justo donec enim.
 
 Elementum pulvinar etiam non quam lacus. Blandit cursus risus at ultrices mi tempus imperdiet. Pharetra vel turpis nunc eget lorem dolor sed viverra. Dolor sit amet consectetur adipiscing. Convallis posuere morbi leo urna molestie at. Imperdiet sed euismod nisi porta lorem mollis. Eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Purus ut faucibus pulvinar elementum integer enim neque. Praesent tristique magna sit amet purus gravida quis. Ut porttitor leo a diam sollicitudin. Eget magna fermentum iaculis eu non diam. Vitae congue eu consequat ac felis donec et odio pellentesque. Facilisis leo vel fringilla est ullamcorper eget nulla. Quisque sagittis purus sit amet volutpat consequat mauris nunc. Sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Tincidunt lobortis feugiat vivamus at. Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus. Pharetra sit amet aliquam id diam maecenas. Tincidunt id aliquet risus feugiat in ante. Quis blandit turpis cursus in hac habitasse.
@@ -231,15 +238,14 @@ Morbi enim nunc faucibus a pellentesque sit. Vitae congue eu consequat ac felis 
 
 Imperdiet massa tincidunt nunc pulvinar. At imperdiet dui accumsan sit amet nulla facilisi. Ultrices neque ornare aenean euismod elementum nisi quis eleifend. Quis commodo odio aenean sed adipiscing diam donec adipiscing. Nascetur ridiculus mus mauris vitae ultricies leo integer malesuada nunc. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Lorem ipsum dolor sit amet consectetur adipiscing. Ullamcorper malesuada proin libero nunc consequat interdum varius sit. Sed id semper risus in hendrerit gravida rutrum quisque. Aliquam ut porttitor leo a diam sollicitudin tempor id. Volutpat maecenas volutpat blandit aliquam etiam erat."
 horizontal_alignment = 0
-autowrap = true
 width = 1500.0
 
 [node name="FinePrintLabel" type="Label3D" parent="Background/StartScreen"]
-transform = Transform( 1, 0, 0, 0, 0.0348985, 0.99939, 0, -0.99939, 0.0348985, -0.426635, 0.0128568, -0.712067 )
+transform = Transform3D(1, 0, 0, 0, 0.0348985, 0.99939, 0, -0.99939, 0.0348985, -0.426635, 0.0128568, -0.712067)
 text = "Fine Print:"
 
 [node name="EnterNameLabel" type="Label3D" parent="Background/StartScreen"]
-transform = Transform( 1, 0, 0, 0, 0.0348992, 0.99939, 0, -0.99939, 0.0348992, -0.73747, 0.00396264, 0.249342 )
+transform = Transform3D(1, 0, 0, 0, 0.0348992, 0.99939, 0, -0.99939, 0.0348992, -0.73747, 0.00396264, 0.249342)
 pixel_size = 0.007
 text = "[P.R.N]
 Please enter your legal name:
@@ -247,30 +253,30 @@ Please enter your legal name:
 horizontal_alignment = 0
 
 [node name="Signature" type="Label3D" parent="Background/StartScreen"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.227231, 0.001831, 0.450243 )
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.227231, 0.001831, 0.450243)
 pixel_size = 0.007
 text = "Signature:________________"
 
-[node name="LeftWall" type="MeshInstance" parent="Background"]
-transform = Transform( 2.14577e-06, 0.99939, -0.0349014, 2.25008e-06, -0.0349014, -0.99939, -0.999999, 2.02376e-06, -2.20537e-06, -0.852416, 0.132545, -0.494664 )
-mesh = SubResource( 11 )
+[node name="LeftWall" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(2.14577e-06, 0.99939, -0.0349014, 2.25008e-06, -0.0349014, -0.99939, -0.999999, 2.02376e-06, -2.20537e-06, -0.852416, 0.132545, -0.494664)
+mesh = SubResource("11")
 
-[node name="RightWall" type="MeshInstance" parent="Background"]
-transform = Transform( 1.31081e-07, -0.999391, -0.0348994, 0, -0.0348993, 0.99939, -0.999999, -1.28523e-07, -1.49012e-08, 0.914095, 0.132545, -0.494664 )
-mesh = SubResource( 11 )
+[node name="RightWall" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1.31081e-07, -0.999391, -0.0348994, 0, -0.0348993, 0.99939, -0.999999, -1.28523e-07, -1.49012e-08, 0.914095, 0.132545, -0.494664)
+mesh = SubResource("11")
 
-[node name="BackWall" type="MeshInstance" parent="Background"]
-transform = Transform( 0.999999, 1.74792e-07, -3.051e-09, 3.051e-09, -0.0348994, -0.99939, -1.74792e-07, 0.99939, -0.0348994, -0.0125381, 0.376839, -1.40638 )
-mesh = SubResource( 11 )
+[node name="BackWall" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.999999, 1.74792e-07, -3.05101e-09, 3.05101e-09, -0.0348995, -0.99939, -1.74792e-07, 0.99939, -0.0348995, -0.0125381, 0.376839, -1.40638)
+mesh = SubResource("11")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/NameEntered = SubResource( 12 )
-anims/PaperFall = SubResource( 14 )
-anims/RESET = SubResource( 13 )
+libraries = {
+"": SubResource("AnimationLibrary_m3tmy")
+}
 
 [node name="LineEdit" type="LineEdit" parent="."]
-margin_right = 1087.0
-margin_bottom = 864.0
+offset_right = 1087.0
+offset_bottom = 864.0
 max_length = 12
 
 [node name="QueueFreeTimer" type="Timer" parent="."]
@@ -278,11 +284,11 @@ wait_time = 3.0
 one_shot = true
 
 [node name="MainTheme" type="AudioStreamPlayer3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.376135, -1.40376 )
-stream = ExtResource( 2 )
-unit_db = -5.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.376135, -1.40376)
+stream = ExtResource("2")
+volume_db = -5.0
 autoplay = true
 
 [connection signal="text_changed" from="LineEdit" to="." method="_on_LineEdit_text_changed"]
-[connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
 [connection signal="timeout" from="QueueFreeTimer" to="." method="_on_QueueFreeTimer_timeout"]

@@ -3,7 +3,7 @@ using System;
 using System.Linq.Expressions;
 using System.Xml.Serialization;
 
-public class StartGame : Spatial
+public partial class StartGame : Node3D
 {
     [Signal]
     public delegate void NameEnteredEventHandler();
@@ -16,7 +16,7 @@ public class StartGame : Spatial
     AnimationPlayer animPlayer;
     Timer qfTimer;
     AudioStreamPlayer3D mainThemeAudio;
-    Spatial background;
+    Node3D background;
     PlayerCamera playerCam;
 
     // Called when the node enters the scene tree for the first time.
@@ -28,14 +28,14 @@ public class StartGame : Spatial
         animPlayer = GetTree().Root.GetChild(0).GetChild(5).GetChild<AnimationPlayer>(1);
         qfTimer = GetTree().Root.GetChild(0).GetChild(5).GetChild<Timer>(3);
         mainThemeAudio = GetTree().Root.GetChild(0).GetChild(5).GetChild<AudioStreamPlayer3D>(4);
-        background = GetTree().Root.GetChild(0).GetChild(5).GetChild<Spatial>(0);
+        background = GetTree().Root.GetChild(0).GetChild(5).GetChild<Node3D>(0);
         nameEdit = GetTree().Root.GetChild(0).GetChild(5).GetChild<LineEdit>(2);
 
         //NOTE: Text box now wont take up space.
-        nameEdit.RectMinSize = new Vector2(0,0);
+        nameEdit.CustomMinimumSize = new Vector2(0,0);
 
         customStyleBox.BgColor = new Color(0, 0, 0, 0);
-        nameEdit.AddStyleboxOverride("normal", customStyleBox);
+        nameEdit.AddThemeStyleboxOverride("normal", customStyleBox);
         nameEdit.Modulate = new Color(1, 1, 1, 0);
         
         // nameEdit.Visible = false;
@@ -44,7 +44,7 @@ public class StartGame : Spatial
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(float delta)
+    public override void _Process(double delta)
     {
         // if(playerName != "" && Input.IsActionJustPressed("start_round")){
         //     playerCam.gameStart = false;
@@ -85,6 +85,6 @@ public class StartGame : Spatial
         qfTimer.QueueFree();
         nameEdit.QueueFree();
 
-        mainThemeAudio.UnitDb = -19.0f;
+        mainThemeAudio.VolumeDb = -19.0f;
     }
 }

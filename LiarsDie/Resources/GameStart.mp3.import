@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/GameStart.mp3-b3e8a87635e7e56cefbe368a924294e7.mp3str"
+uid="uid://bx6v52jqndnl8"
+path="res://.godot/imported/GameStart.mp3-b3e8a87635e7e56cefbe368a924294e7.mp3str"
 
 [deps]
 
 source_file="res://Resources/GameStart.mp3"
-dest_files=[ "res://.import/GameStart.mp3-b3e8a87635e7e56cefbe368a924294e7.mp3str" ]
+dest_files=["res://.godot/imported/GameStart.mp3-b3e8a87635e7e56cefbe368a924294e7.mp3str"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

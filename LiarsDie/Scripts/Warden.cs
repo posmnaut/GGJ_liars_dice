@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Net;
 
-public class Warden : Spatial
+public partial class Warden : Node3D
 {
     [Signal]
     public delegate void WBidMadeEventHandler(int highestFreq, int highestFace);
@@ -53,7 +53,7 @@ public class Warden : Spatial
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(float delta)
+    public override void _Process(double delta)
     {
         if(diceLabel.Visible == true && decideTimer.TimeLeft != 0){
             quantVal = randNumGen.Next(1, 7);
